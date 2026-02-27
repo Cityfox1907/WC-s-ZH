@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>ZüriHub – Gastronomie-Datenbank Kanton Zürich</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍽️</text></svg>">
+<title>ZüriHub – Barbershops Kanton Zürich</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💈</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="design-tokens.css">
 <style>
@@ -24,7 +24,7 @@
   --splash-bg:var(--primary);
 }
 
-/* ── DARK MODE ── */
+/* DARK MODE */
 html.dark{
   --bg:#0f1b2d;--surface:#1a2a3a;--surface2:#1e3148;--border:#2a3f58;--border-light:#243650;
   --text:#e8ecf2;--text2:#a8b8cc;--text3:#6b7f96;
@@ -53,8 +53,6 @@ html.dark .sopt:hover{background:var(--surface2)}
 html.dark .mclose{background:rgba(26,42,58,.94)}
 html.dark .search-box input{background:var(--surface2);border-color:var(--border);color:var(--text)}
 html.dark .search-box input:focus{border-color:var(--primary);background:var(--surface);box-shadow:0 0 0 3px rgba(90,156,245,.15)}
-html.dark .cs-input{background:var(--surface2);border-color:var(--border);color:var(--text)}
-html.dark .geo-input input{background:var(--surface2);border-color:var(--border);color:var(--text)}
 html.dark .tag{background:var(--surface2);color:var(--text2)}
 html.dark .pb{background:var(--surface);border-color:var(--border);color:var(--text2)}
 html.dark .pb.on{background:var(--primary);color:#fff;border-color:var(--primary)}
@@ -65,27 +63,15 @@ html.dark .ltbl tbody tr:hover{background:var(--primary-lighter)}
 html.dark .btn-s{background:var(--surface);color:var(--text2);border-color:var(--border)}
 html.dark .btn-s:hover{border-color:var(--primary);color:var(--primary)}
 html.dark .chip{background:var(--primary-light);color:var(--primary-dark)}
-html.dark .drop-zone{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.04)}
-html.dark .card-trade.ct-restaurant{background:rgba(59,130,246,0.22);color:#60a5fa}
-html.dark .card-trade.ct-bar{background:rgba(239,68,68,0.22);color:#f87171}
-html.dark .card-trade.ct-café{background:rgba(180,140,100,0.22);color:#c9a96e}
-html.dark .card-trade.ct-bäckerei{background:rgba(245,158,11,0.22);color:#fbbf24}
-html.dark .card-trade.ct-einkaufszentrum{background:rgba(34,197,94,0.22);color:#4ade80}
-html.dark .card-trade.ct-takeaway{background:rgba(120,120,130,0.22);color:#9ca3af}
-html.dark .card-trade.ct-hotel{background:rgba(99,102,241,0.22);color:#a5b4fc}
-html.dark .card-trade.ct-default{background:rgba(120,120,130,0.18);color:var(--text3)}
 html.dark .rank-badge{background:#e8914a;color:#fff;box-shadow:0 2px 8px rgba(232,145,74,.4)}
 html.dark .rank-badge.top3{background:linear-gradient(135deg,#e8914a,#f5a623)}
 html.dark .fav-star{color:#6b7f96}
 html.dark .fav-star.active{color:#f5a623;text-shadow:0 0 8px rgba(245,166,35,.5)}
-/* Dark mode: filter chips */
-html.dark .filter-chip{background:var(--surface);border-color:var(--border);color:var(--text2)}
-html.dark .filter-chip.on{background:var(--primary);color:#fff;border-color:var(--primary)}
-html.dark .filter-chip:hover{border-color:var(--primary);color:var(--primary)}
-html.dark .filter-section-label{color:var(--primary)}
-/* Dark mode: maps button */
 html.dark .btn-maps{background:var(--surface2);border-color:var(--border);color:var(--text2)}
 html.dark .btn-maps:hover{background:var(--surface);border-color:var(--primary);color:var(--primary)}
+html.dark .back-link{background:var(--primary-light);color:var(--primary)}
+html.dark .back-link:hover{background:var(--surface2);border-color:var(--primary)}
+html.dark .geo-input input{background:var(--surface2);border-color:var(--border);color:var(--text)}
 
 html{font-family:var(--font);background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden;transition:background .3s,color .3s}
 body{min-height:100vh;overflow-x:hidden}
@@ -110,20 +96,14 @@ a{color:inherit;text-decoration:none}
 .splash-msg{font-size:.85rem;opacity:.6;margin-top:1rem;position:relative;z-index:1}
 .splash-bar{width:200px;height:3px;background:rgba(255,255,255,.15);border-radius:2px;overflow:hidden;margin-top:.75rem;position:relative;z-index:1}
 .splash-bar-inner{height:100%;width:0%;background:#fff;border-radius:2px;transition:width .3s}
-.splash-upload{display:none;margin-top:1.5rem;position:relative;z-index:1;text-align:center}
-.splash-upload.show{display:block}
-.drop-zone{width:340px;max-width:90vw;border:2px dashed rgba(255,255,255,.35);border-radius:14px;padding:2rem 1.5rem;cursor:pointer;transition:all .25s;position:relative;background:rgba(255,255,255,.06)}
-.drop-zone:hover,.drop-zone.over{border-color:rgba(255,255,255,.7);background:rgba(255,255,255,.12);transform:scale(1.02)}
-.drop-zone input{position:absolute;inset:0;opacity:0;cursor:pointer}
-.drop-icon{font-size:2.2rem;margin-bottom:.5rem;display:block}
-.drop-text{font-size:.9rem;opacity:.85;line-height:1.6}
-.drop-hint{font-size:.75rem;opacity:.45;margin-top:.4rem}
 
 /* HEADER */
 .header{position:sticky;top:0;z-index:100;background:var(--header-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border-light);padding:.55rem 1.25rem;transition:background .3s}
 .header-inner{max-width:1480px;margin:0 auto;display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
 .logo{font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:var(--primary);white-space:nowrap;flex-shrink:0;letter-spacing:-.02em;display:inline-flex;align-items:center;gap:.4rem;text-decoration:none}
 .logo-icon{flex-shrink:0;display:block}
+.back-link{padding:.35rem .65rem;border-radius:var(--radius-sm);font-size:.78rem;font-weight:500;color:var(--primary);background:var(--primary-light);transition:all .18s;display:inline-flex;align-items:center;gap:.25rem;white-space:nowrap;text-decoration:none;border:1.5px solid transparent}
+.back-link:hover{border-color:var(--primary);background:var(--primary-lighter)}
 .search-box{flex:1;min-width:180px;max-width:460px;position:relative}
 .search-box input{width:100%;padding:.5rem .85rem .5rem 2.2rem;border:1.5px solid var(--border);border-radius:var(--radius);background:var(--bg);font-size:.87rem;transition:all .2s;outline:none;color:var(--text)}
 .search-box input:focus{border-color:var(--primary);background:var(--surface);box-shadow:0 0 0 3px rgba(15,71,175,.1)}
@@ -133,7 +113,7 @@ a{color:inherit;text-decoration:none}
 .hbtn{padding:.42rem .7rem;border-radius:var(--radius-sm);font-size:.8rem;font-weight:500;color:var(--text2);border:1.5px solid var(--border);background:var(--surface);transition:all .18s;display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap}
 .hbtn:hover{border-color:var(--primary);color:var(--primary)}
 .hbtn svg{width:15px;height:15px;flex-shrink:0}
-/* ── VIEW TOGGLE (slide switch) ── */
+/* VIEW TOGGLE */
 .view-toggle{position:relative;width:58px;height:28px;border-radius:14px;background:var(--border);cursor:pointer;border:1.5px solid var(--border);transition:all .3s;flex-shrink:0;display:flex;align-items:center}
 .view-toggle .vt-knob{position:absolute;left:2px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.15);transition:transform .3s cubic-bezier(.4,.0,.2,1);display:flex;align-items:center;justify-content:center;z-index:2}
 .view-toggle .vt-knob svg{width:13px;height:13px;color:var(--primary)}
@@ -141,12 +121,9 @@ a{color:inherit;text-decoration:none}
 .view-toggle .vt-icon-grid{left:6px;opacity:.5;color:var(--text3)}
 .view-toggle .vt-icon-list{right:6px;opacity:.5;color:var(--text3)}
 .view-toggle.list-active .vt-knob{transform:translateX(30px)}
-.view-toggle.list-active .vt-icon-grid{opacity:.5}
-.view-toggle.list-active .vt-icon-list{opacity:.5}
 html.dark .view-toggle{background:var(--surface);border-color:var(--border)}
 html.dark .view-toggle .vt-knob{background:#e8ecf2}
-
-/* ── THEME TOGGLE ── */
+/* THEME TOGGLE */
 .theme-toggle{position:relative;width:52px;height:28px;border-radius:14px;background:var(--border);cursor:pointer;border:1.5px solid var(--border);transition:all .3s;flex-shrink:0;display:flex;align-items:center}
 .theme-toggle .toggle-knob{position:absolute;left:2px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.15);transition:transform .3s cubic-bezier(.4,.0,.2,1);display:flex;align-items:center;justify-content:center;font-size:.7rem}
 .theme-toggle .toggle-icon-sun,.theme-toggle .toggle-icon-moon{position:absolute;font-size:.75rem;transition:opacity .25s}
@@ -156,7 +133,6 @@ html.dark .theme-toggle{background:#1e3148;border-color:#2a3f58}
 html.dark .theme-toggle .toggle-knob{transform:translateX(24px);background:#e8914a}
 html.dark .theme-toggle .toggle-icon-sun{opacity:0}
 html.dark .theme-toggle .toggle-icon-moon{opacity:1}
-
 /* STATS */
 .stats{max-width:1480px;margin:0 auto;padding:.45rem 1.25rem;display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;font-size:.82rem;color:var(--text2)}
 .rcnt b{color:var(--primary);font-weight:700}
@@ -166,75 +142,40 @@ html.dark .theme-toggle .toggle-icon-moon{opacity:1}
 .chip-x:hover{opacity:1;background:rgba(15,71,175,.15)}
 .chip-clear{font-size:.74rem;color:var(--accent);font-weight:600;padding:.18rem .4rem;border-radius:var(--radius-sm);transition:background .12s}
 .chip-clear:hover{background:var(--accent-light)}
-
 /* LAYOUT */
 .layout{max-width:1480px;margin:0 auto;display:flex;position:relative;overflow-x:hidden}
 .fov{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:149;display:none}.fov.on{display:block}
-
-/* ── SIDEBAR ── */
+/* SIDEBAR */
 .sidebar{width:280px;min-width:280px;border-right:1px solid var(--border-light);background:var(--sidebar-bg);padding:.75rem 1rem;overflow-y:auto;max-height:calc(100vh - 102px);position:sticky;top:102px;transition:transform .3s,background .3s}
 .fs{margin-bottom:.85rem;padding-bottom:.85rem;border-bottom:1px solid var(--border-light)}.fs:last-child{border-bottom:none}
 .fl{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text3);margin-bottom:.45rem;display:flex;align-items:center;justify-content:space-between}
-.fl button{font-size:.68rem;color:var(--primary);font-weight:600}
-
-/* ── Filter section accordion labels ── */
-.filter-section-label{font-size:.8rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--primary);padding:.5rem 0;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;border:none;background:none;width:100%;border-bottom:1px solid #e5e7eb;margin-bottom:.35rem}
-.filter-section-label::after{content:'▸';font-size:.75rem;transition:transform .25s;color:var(--text3)}
-.filter-section-label.open::after{content:'▾'}
-.filter-section-body{display:none;padding-bottom:.45rem}
-.filter-section-body.open{display:block}
-html.dark .filter-section-label{border-bottom-color:var(--border)}
-
-/* ── Filter chips grid (2 columns) ── */
-.filter-chips-grid{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
-.filter-chip{padding:.28rem .45rem;border-radius:8px;font-size:.73rem;font-weight:500;border:1.5px solid var(--border);color:var(--text2);background:var(--surface);transition:all .15s;text-align:center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer;display:block;width:100%}
-.filter-chip:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-lighter)}
-.filter-chip.on{background:var(--primary);color:#fff;border-color:var(--primary)}
-.filter-chip .chip-count{font-size:.62rem;opacity:.5;margin-left:.15rem}
-
-/* Legacy tag buttons (Betriebsart, Standort) */
 .tg{display:flex;flex-wrap:wrap;gap:.28rem}
 .tb{padding:.22rem .5rem;border-radius:20px;font-size:.74rem;border:1.5px solid var(--border);color:var(--text2);background:var(--surface);transition:all .15s;white-space:nowrap;line-height:1.4}
 .tb:hover{border-color:var(--primary);color:var(--primary)}
 .tb.on{background:var(--primary);color:#fff;border-color:var(--primary)}
-.tb .n{font-size:.66rem;opacity:.55;margin-left:.15rem}
-.cs-input{width:100%;padding:.38rem .55rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:.8rem;margin-bottom:.35rem;outline:none;transition:border-color .15s;background:var(--bg);color:var(--text)}
-.cs-input:focus{border-color:var(--primary);background:var(--surface)}
-.clist{max-height:170px;overflow-y:auto}
-.ci{display:flex;align-items:center;gap:.35rem;padding:.22rem 0;font-size:.78rem;cursor:pointer;color:var(--text2);transition:color .12s}
-.ci:hover{color:var(--text)}
-.ci input{accent-color:var(--primary);width:13px;height:13px;flex-shrink:0}
-.ci .n{margin-left:auto;font-size:.68rem;color:var(--text3)}
 .rng{margin-bottom:.35rem}
 .rng label{font-size:.78rem;color:var(--text2);display:flex;justify-content:space-between;margin-bottom:.2rem}
 .rng label b{font-weight:700;color:var(--primary)}
 input[type="range"]{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;background:var(--border);outline:none;margin:.25rem 0}
 input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:16px;border-radius:50%;background:var(--primary);cursor:pointer;border:2.5px solid var(--surface);box-shadow:0 1px 4px rgba(0,0,0,.15)}
 .rpre{display:flex;flex-wrap:wrap;gap:.22rem;margin-top:.3rem}
-
+/* Geo */
+.geo-input{display:flex;gap:.3rem;margin-bottom:.4rem;align-items:center}
+.geo-input input{flex:1;padding:.38rem .4rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:.82rem;text-align:center;outline:none;background:var(--bg);transition:border-color .15s;letter-spacing:.08em;font-weight:600;color:var(--text)}
+.geo-input input:focus{border-color:var(--primary);background:var(--surface)}
+.geo-input input.err{border-color:var(--accent);background:var(--accent-light)}
+.geo-input input.ok{border-color:#0D8A4A;background:#ECFDF3}
+.geo-hint{font-size:.68rem;color:var(--text3);margin-bottom:.35rem}
+.geo-active{font-size:.72rem;color:var(--primary);font-weight:600;margin-bottom:.35rem;display:flex;align-items:center;gap:.25rem}
+.geo-active button{font-size:.68rem;color:var(--accent);font-weight:600;margin-left:auto}
 /* CONTENT */
 .content{flex:1;padding:.75rem 1.25rem;min-width:0;overflow-x:hidden}
-
-/* ── GRID: responsive columns ── */
 .grid{display:grid;grid-template-columns:1fr;gap:.85rem;overflow:visible;padding-top:4px;align-items:stretch;max-width:900px;margin:0 auto}
 @media(min-width:768px){.grid{grid-template-columns:repeat(2,1fr)}}
-
-/* ── CARD: column layout, equal heights in grid ── */
+/* CARD */
 .card{background:var(--card-bg);border:1.5px solid var(--border-light);border-radius:14px;padding:.95rem 1rem;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;position:relative;overflow:hidden;height:100%;min-height:0}
 .card:hover{box-shadow:0 6px 24px rgba(15,71,175,0.13);border-color:rgba(15,71,175,0.25);transform:translateY(-2px)}
-/* Header: rank badge left + trade right */
 .card-header{display:flex;align-items:center;gap:1.1rem;margin-bottom:.55rem;flex-shrink:0}
-.card-trade{font-size:.88rem;font-weight:700;padding:.2rem .6rem;border-radius:6px;white-space:nowrap;flex-shrink:0;letter-spacing:.02em;line-height:1}
-/* Per-category trade colors (40% opacity backgrounds) */
-.card-trade.ct-restaurant{background:rgba(59,130,246,0.14);color:#2563eb}
-.card-trade.ct-bar{background:rgba(239,68,68,0.14);color:#dc2626}
-.card-trade.ct-café{background:rgba(180,140,100,0.14);color:#92610e}
-.card-trade.ct-bäckerei{background:rgba(245,158,11,0.14);color:#d97706}
-.card-trade.ct-einkaufszentrum{background:rgba(34,197,94,0.14);color:#16a34a}
-.card-trade.ct-takeaway{background:rgba(120,120,130,0.14);color:#6b7280}
-.card-trade.ct-hotel{background:rgba(99,102,241,0.14);color:#6366f1}
-.card-trade.ct-default{background:rgba(120,120,130,0.10);color:var(--text2)}
-/* Row: photo + content side by side */
 .card-main-row{display:flex;flex-direction:row;align-items:flex-start;gap:.85rem;margin-bottom:.65rem}
 .card-content{flex:1;min-width:0;display:flex;flex-direction:column;gap:.22rem}
 .card-name{font-weight:700;font-size:1.1rem;line-height:1.3;color:var(--text);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;white-space:normal}
@@ -244,66 +185,27 @@ input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;hei
 .card-rating{display:flex;align-items:center;gap:.4rem;margin-top:.1rem}
 .stars{display:inline-flex;gap:1px;color:var(--gold)}.stars svg{width:13px;height:13px}.stars .e{color:var(--border)}
 .card-score{font-weight:700;font-size:.9rem;color:var(--text)}.card-reviews{font-size:.8rem;color:var(--text3)}
-/* Footer: tags left, maps button right */
 .card-footer{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:.55rem;border-top:1px solid var(--border-light);gap:.5rem}
 .card-tags{display:flex;flex-wrap:wrap;gap:.3rem;flex:1;min-width:0;align-items:center}
-.card-footer .card-trade{font-size:.82rem;font-weight:700;padding:.22rem .65rem}
-.card-footer .tag:not(.card-trade){font-size:.72rem}
-.card-icon{width:46px;height:46px;min-width:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0}
-.ci-restaurant{background:linear-gradient(135deg,#FFF5F5,#FED7D7)}
-.ci-bar{background:linear-gradient(135deg,#FFFFF0,#FEFCBF)}
-.ci-café{background:linear-gradient(135deg,#FFF8F1,#FEEBC8)}
-.ci-hotel{background:linear-gradient(135deg,#EBF8FF,#BEE3F8)}
-.ci-bäckerei{background:linear-gradient(135deg,#FFFAF0,#FEEBC8)}
-.ci-takeaway{background:linear-gradient(135deg,#F0FFF4,#C6F6D5)}
-.ci-einkaufszentrum{background:linear-gradient(135deg,#F5F3FF,#E9D8FD)}
-.ci-default{background:linear-gradient(135deg,#F7FAFC,#E2E8F0)}
-html.dark .ci-restaurant{background:linear-gradient(135deg,#2a1a1a,#3a2020)}
-html.dark .ci-bar{background:linear-gradient(135deg,#2a2a1a,#3a3520)}
-html.dark .ci-café{background:linear-gradient(135deg,#2a2418,#3a3020)}
-html.dark .ci-hotel{background:linear-gradient(135deg,#1a2530,#203040)}
-html.dark .ci-bäckerei{background:linear-gradient(135deg,#2a2518,#3a3020)}
-html.dark .ci-takeaway{background:linear-gradient(135deg,#1a2a1a,#203520)}
-html.dark .ci-einkaufszentrum{background:linear-gradient(135deg,#221a30,#2a2040)}
-html.dark .ci-default{background:linear-gradient(135deg,#1a2030,#253040)}
+.card-icon{width:46px;height:46px;min-width:46px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.35rem;flex-shrink:0;background:linear-gradient(135deg,#FFF5F5,#FED7D7)}
+html.dark .card-icon{background:linear-gradient(135deg,#2a1a1a,#3a2020)}
 .tag{padding:.15rem .5rem;border-radius:12px;font-size:.8rem;font-weight:500;background:var(--surface2);color:var(--text2);white-space:nowrap}
 .kreis{display:inline-flex;align-items:center;padding:.1rem .35rem;border-radius:6px;font-size:.62rem;font-weight:700;background:var(--primary);color:#fff;white-space:nowrap;letter-spacing:.03em;flex-shrink:0}
 .dist{display:inline-flex;align-items:center;gap:.15rem;padding:.1rem .38rem;border-radius:6px;font-size:.62rem;font-weight:700;background:var(--gold);color:#fff;white-space:nowrap;flex-shrink:0;letter-spacing:.01em}
 .dist svg{width:10px;height:10px}
-
-/* ── Card profile photo ── */
-.card-photo{width:80px;height:80px;min-width:80px;border-radius:12px;object-fit:cover;object-position:center;border:2px solid var(--border-light);box-shadow:0 2px 10px rgba(0,0,0,0.10);flex-shrink:0;display:block}
-
-/* ── Google Maps Button (footer right) ── */
 .btn-maps{display:inline-flex;align-items:center;gap:.3rem;padding:.3rem .6rem;border-radius:7px;background:#fff;border:1.5px solid #dadce0;text-decoration:none;font-size:.72rem;font-weight:600;color:#3c4043;white-space:nowrap;flex-shrink:0;transition:all .18s;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
 .btn-maps:hover{background:#f8f9fa;border-color:#bdc1c6;box-shadow:0 2px 6px rgba(0,0,0,0.12)}
-
-/* Geo input row */
-.geo-input{display:flex;gap:.3rem;margin-bottom:.4rem;align-items:center}
-.geo-input input{flex:1;padding:.38rem .4rem;border:1.5px solid var(--border);border-radius:var(--radius-sm);font-size:.82rem;text-align:center;outline:none;background:var(--bg);transition:border-color .15s;letter-spacing:.08em;font-weight:600;color:var(--text)}
-.geo-input input:focus{border-color:var(--primary);background:var(--surface)}
-.geo-input input.err{border-color:var(--accent);background:var(--accent-light)}
-.geo-input input.ok{border-color:#0D8A4A;background:#ECFDF3}
-.geo-hint{font-size:.68rem;color:var(--text3);margin-bottom:.35rem}
-.geo-active{font-size:.72rem;color:var(--primary);font-weight:600;margin-bottom:.35rem;display:flex;align-items:center;gap:.25rem}
-.geo-active button{font-size:.68rem;color:var(--accent);font-weight:600;margin-left:auto}
-
-/* ── RANK BADGE (pill, inside card top-left) ── */
 .rank-badge{display:inline-flex;align-items:center;justify-content:center;padding:.18rem .55rem;border-radius:6px;background:linear-gradient(135deg,#e8a020,#d4930d);color:#fff;font-size:.72rem;font-weight:800;letter-spacing:.02em;box-shadow:0 2px 6px rgba(212,147,13,0.35);position:static;width:auto;height:auto;line-height:1}
 .rank-badge.top3{background:linear-gradient(135deg,#e8a020,#d4930d);box-shadow:0 2px 8px rgba(212,147,13,0.5);padding:.2rem .6rem;font-size:.75rem}
-
-/* ── FAVORITE STAR ── */
 .fav-star{position:absolute;top:.55rem;right:.55rem;font-size:1.25rem;cursor:pointer;color:var(--text3);opacity:.5;transition:all .2s;z-index:3;line-height:1;padding:.15rem}
 .fav-star:hover{opacity:1;transform:scale(1.2)}
 .fav-star.active{color:var(--gold);opacity:1;text-shadow:0 0 6px rgba(212,147,13,.3)}
-
-/* ── BACK TO TOP ── */
+/* BACK TO TOP */
 .btt{position:fixed;bottom:1.5rem;right:1.5rem;width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;font-size:1.1rem;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-md);cursor:pointer;border:none;z-index:90;opacity:0;visibility:hidden;transform:translateY(10px);transition:all .3s}
 .btt.show{opacity:1;visibility:visible;transform:translateY(0)}
 .btt:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:var(--shadow-lg)}
 html.dark .btt{background:#e8914a}
 html.dark .btt:hover{background:#d17f3a}
-
 /* LIST VIEW */
 .lview{display:none;overflow-x:auto}
 .ltbl{width:100%;border-collapse:separate;border-spacing:0;font-size:.78rem}
@@ -322,7 +224,6 @@ html.dark .btt:hover{background:#d17f3a}
 .ltbl .ac{color:var(--text2);max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .ltbl .link-cell a{color:var(--primary);font-weight:500;font-size:.78rem}
 .ltbl .link-cell a:hover{text-decoration:underline}
-
 /* PAGINATION */
 .pag{display:flex;align-items:center;justify-content:center;gap:.35rem;margin:1.5rem 0 1rem;flex-wrap:wrap}
 .pb{min-width:34px;height:34px;padding:0 .5rem;display:flex;align-items:center;justify-content:center;border-radius:var(--radius-sm);font-size:.82rem;font-weight:500;border:1.5px solid var(--border);color:var(--text2);background:var(--surface);transition:all .15s}
@@ -330,7 +231,6 @@ html.dark .btt:hover{background:#d17f3a}
 .pb.on{background:var(--primary);color:#fff;border-color:var(--primary)}
 .pb:disabled{opacity:.25;pointer-events:none}
 .pi{font-size:.78rem;color:var(--text3);padding:0 .35rem}
-
 /* MODAL */
 .mo{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;justify-content:flex-end}
 .mo.on{display:flex}
@@ -349,16 +249,20 @@ html.dark .btt:hover{background:#d17f3a}
 .m-cta a{display:inline-flex;align-items:center;gap:.3rem;padding:.5rem 1rem;border-radius:var(--radius);font-size:.85rem;font-weight:500;transition:all .18s;text-decoration:none}
 .btn-p{background:var(--primary);color:#fff}.btn-p:hover{background:var(--primary-dark)}
 .btn-s{background:var(--surface);color:var(--text2);border:1.5px solid var(--border)}.btn-s:hover{border-color:var(--primary);color:var(--primary)}
-
 /* Dropdowns */
 .sdrop{position:relative}
-.smenu{position:absolute;top:100%;right:0;margin-top:.3rem;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:.25rem;min-width:195px;z-index:50;display:none;max-height:calc(100vh - 120px);overflow-y:auto;-webkit-overflow-scrolling:touch}
+.smenu{position:absolute;top:100%;right:0;margin-top:.3rem;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);padding:.25rem;min-width:195px;z-index:50;display:none;max-height:calc(100vh - 120px);overflow-y:auto}
 .smenu.on{display:block}
 .sopt{padding:.4rem .65rem;border-radius:var(--radius-sm);font-size:.8rem;color:var(--text2);display:flex;align-items:center;gap:.3rem;width:100%;text-align:left;transition:background .1s}
 .sopt:hover{background:var(--surface2)}.sopt.on{color:var(--primary);font-weight:600}
 .empty{text-align:center;padding:3.5rem 2rem;color:var(--text3)}
 .empty .ei{font-size:2.5rem;margin-bottom:.5rem;display:block}
-
+/* Opening hours in modal */
+.hours-list{list-style:none;padding:0;margin:0}
+.hours-list li{font-size:.82rem;color:var(--text2);padding:.18rem 0;border-bottom:1px solid var(--border-light);display:flex;justify-content:space-between}
+.hours-list li:last-child{border-bottom:none}
+.hours-day{font-weight:600;color:var(--text)}
+.hours-time{color:var(--text2)}
 /* MOBILE */
 .mfbtn{display:none!important}
 @media(max-width:900px){
@@ -367,7 +271,6 @@ html.dark .btt:hover{background:#d17f3a}
 @media(max-width:640px){
   .header-inner{gap:.35rem}.search-box{max-width:100%;order:10;min-width:100%}.hactions{width:100%;order:11;overflow-x:hidden;flex-wrap:nowrap;gap:.25rem;display:flex;justify-content:space-between}.stats{padding:.35rem .75rem;font-size:.77rem}.mp{width:100%}.grid{gap:.65rem}
   .theme-toggle{flex-shrink:0}
-  .card-photo{width:64px;height:64px;min-width:64px}
   .card-main-row{gap:.6rem;margin-bottom:.5rem}
   .card-footer{padding-top:.45rem}
   .btn-maps{font-size:.68rem;padding:.25rem .5rem}
@@ -384,27 +287,20 @@ html.dark .btt:hover{background:#d17f3a}
 </head>
 <body>
 <div id="splash">
-  <div class="splash-logo">ZüriHub</div>
-  <div class="splash-sub">Gastronomie-Datenbank Kanton Zürich</div>
+  <div class="splash-logo">💈 ZüriHub</div>
+  <div class="splash-sub">Barbershop-Datenbank Kanton Zürich</div>
   <div class="splash-spinner" id="splashSpinner"></div>
   <div class="splash-msg" id="splashMsg">Datenbank wird geladen…</div>
   <div class="splash-bar" id="splashBarWrap"><div class="splash-bar-inner" id="pbar"></div></div>
-  <div class="splash-upload" id="splashUpload">
-    <div class="drop-zone" id="dropZone">
-      <input type="file" accept=".json" id="fileInput">
-      <span class="drop-icon">📂</span>
-      <div class="drop-text"><b>gastro.json</b> hierher ziehen<br>oder klicken zum Auswählen</div>
-      <div class="drop-hint">Wird benötigt wenn nicht auf GitHub Pages gehostet</div>
-    </div>
-  </div>
 </div>
 
 <div id="app" style="display:none">
   <header class="header"><div class="header-inner">
     <a href="index.html" class="logo" onclick="localStorage.removeItem('zh-filter-state')"><svg class="logo-icon" width="28" height="28" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4" y="4" width="92" height="92" rx="20" fill="currentColor" opacity=".08" stroke="currentColor" stroke-width="4"/><path d="M30 82V42l-4-2V38l12-14h2l2 5h16l2-5h2l12 14v2l-4 2v40" stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/><rect x="35" y="40" width="10" height="42" rx="1.5" stroke="currentColor" stroke-width="3.5"/><rect x="55" y="40" width="10" height="42" rx="1.5" stroke="currentColor" stroke-width="3.5"/><circle cx="40" cy="30" r="3.5" fill="currentColor"/><circle cx="60" cy="30" r="3.5" fill="currentColor"/><line x1="26" y1="82" x2="74" y2="82" stroke="currentColor" stroke-width="4" stroke-linecap="round"/><line x1="82" y1="12" x2="18" y2="88" stroke="#1a73e8" stroke-width="3" stroke-linecap="round" opacity=".18"/></svg>ZüriHub</a>
+    <a href="index.html" class="back-link">🍽️ Gastronomie</a>
     <div class="search-box">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="si" placeholder="Name, Adresse, Küche, Keyword…" autocomplete="off">
+      <input type="text" id="si" placeholder="Name, Adresse, Keyword…" autocomplete="off">
     </div>
     <div class="hactions">
       <button class="hbtn mfbtn" onclick="toggleMF()"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg><span class="btn-label">Filter</span></button>
@@ -414,7 +310,6 @@ html.dark .btt:hover{background:#d17f3a}
         <div class="vt-knob"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" id="vtKnobIcon"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></div>
       </div>
       <div class="sdrop"><button class="hbtn" onclick="toggleSort(event)"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5h10M11 9h7M11 13h4M3 17l3 3 3-3M6 18V4"/></svg><span class="btn-label">Sortieren</span></button><div class="smenu" id="sortMenu"></div></div>
-      <a href="barbershops.html" class="hbtn" title="Barbershops">💈 <span class="btn-label">Barbershops</span></a>
       <a href="favoriten.html" class="hbtn" title="Favoriten" onclick="saveFilterState()">⭐ <span class="btn-label">Favoriten</span></a>
       <div class="theme-toggle" onclick="toggleTheme()" title="Hell/Dunkel umschalten">
         <span class="toggle-icon-sun">☀️</span>
@@ -430,11 +325,8 @@ html.dark .btt:hover{background:#d17f3a}
     <div class="fov" id="fov" onclick="toggleMF()"></div>
     <aside class="sidebar" id="sidebar">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem"><span style="font-weight:700;font-size:.9rem">Filter</span><button class="chip-clear" onclick="clearAll()">Zurücksetzen</button></div>
-      <div class="fs" id="fTrade"><button class="filter-section-label open" id="lblTrade">Betriebsart</button><div class="filter-section-body open"><div class="filter-chips-grid" id="fTradeGrid"></div></div></div>
-      <div class="fs" id="fCuisine"><div class="filter-section-body open" id="fCuisineBody"></div></div>
-      <div class="fs"><div class="fl">Standort</div><div class="tg" style="gap:.35rem"><button id="btnStadtZh" class="tb" onclick="toggleStadtZh()" style="flex:1;justify-content:center;font-weight:600">🏙️ Stadt Zürich</button><button id="btnWinti" class="tb" onclick="toggleWinti()" style="flex:1;justify-content:center;font-weight:600">🏙️ Winterthur</button></div></div>
       <div class="fs" id="fGeo"><div class="fl">Umkreis-Suche</div><div id="geoStatus"></div><div class="geo-input"><input type="text" id="geoPlz" placeholder="PLZ eingeben" maxlength="4" inputmode="numeric" pattern="[0-9]*"></div><div class="geo-hint" id="geoHint">PLZ eingeben, dann Radius wählen</div><div class="tg" id="geoRadius"></div></div>
-      <div class="fs"><div class="fl">Bewertung</div><div class="rng"><label>Mindestbewertung <b id="ratingVal">1.0</b></label><input type="range" min="1" max="5" step="0.1" value="1" id="ratingSlider" oninput="onRating(this.value)"></div><div class="rng" style="margin-top:.5rem"><label>Min. Bewertungen <b id="revVal">40</b></label><input type="range" min="0" max="100" value="0" id="revSlider" oninput="onRevCount(this.value)"></div><div class="rpre" id="revPresets"></div></div>
+      <div class="fs"><div class="fl">Bewertung</div><div class="rng"><label>Mindestbewertung <b id="ratingVal">1.0</b></label><input type="range" min="1" max="5" step="0.1" value="1" id="ratingSlider" oninput="onRating(this.value)"></div><div class="rng" style="margin-top:.5rem"><label>Min. Bewertungen <b id="revVal">0</b></label><input type="range" min="0" max="100" value="0" id="revSlider" oninput="onRevCount(this.value)"></div><div class="rpre" id="revPresets"></div></div>
     </aside>
     <main class="content">
       <div class="grid" id="grid"></div>
@@ -450,18 +342,16 @@ html.dark .btt:hover{background:#d17f3a}
   <div class="mbody" id="mbody"></div>
 </div></div>
 
-<!-- Back to top -->
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Nach oben">↑</button>
 
 <script>
-// ── THEME ──
+// THEME
 (function(){var t=localStorage.getItem('zh-theme');if(t==='dark')document.documentElement.classList.add('dark')})();
 function toggleTheme(){document.documentElement.classList.toggle('dark');localStorage.setItem('zh-theme',document.documentElement.classList.contains('dark')?'dark':'light')}
 
-// ── FAVORITES ──
+// FAVORITES
 function getFavs(){try{return JSON.parse(localStorage.getItem('zh-favs'))||[]}catch(e){return[]}}
 function saveFavs(arr){localStorage.setItem('zh-favs',JSON.stringify(arr))}
-function isFav(id){return getFavs().indexOf(id)>=0}
 function toggleFav(id,e){
   if(e){e.stopPropagation();e.preventDefault()}
   var favs=getFavs();var idx=favs.indexOf(id);
@@ -470,76 +360,16 @@ function toggleFav(id,e){
   document.querySelectorAll('.fav-star[data-id="'+id+'"]').forEach(function(s){s.classList.toggle('active',favs.indexOf(id)>=0);s.textContent=favs.indexOf(id)>=0?'★':'☆'});
 }
 
-// ── FILTER STATE PERSISTENCE ──
-function saveFilterState(){
-  var state={s:fl.s,tr:Array.from(fl.tr),cu:Array.from(fl.cu),ci:Array.from(fl.ci),mr:fl.mr,mv:fl.mv,stadtZh:fl.stadtZh,winterthur:fl.winterthur,sortK:sort.k,sortD:sort.d,page:page};
-  localStorage.setItem('zh-filter-state',JSON.stringify(state));
-}
-function restoreFilterState(){
-  try{
-    var raw=localStorage.getItem('zh-filter-state');if(!raw)return false;
-    var st=JSON.parse(raw);
-    fl.s=st.s||'';fl.tr=new Set(st.tr||[]);fl.cu=new Set(st.cu||[]);fl.ci=new Set(st.ci||[]);
-    fl.mr=st.mr||1;fl.mv=st.mv||40;fl.stadtZh=!!st.stadtZh;fl.winterthur=!!st.winterthur;
-    sort={k:st.sortK||'reviewCount',d:st.sortD||'desc'};page=st.page||1;
-    if(fl.s)document.getElementById('si').value=fl.s;
-    document.getElementById('ratingSlider').value=fl.mr;document.getElementById('ratingVal').textContent=fl.mr.toFixed(1);
-    var rvSlider=rv2s(fl.mv);document.getElementById('revSlider').value=rvSlider;document.getElementById('revVal').textContent=fl.mv>=14000?'14000+':''+fl.mv;
-    fl.tr.forEach(function(t){var b=document.querySelector('[data-k="tr"][data-v="'+t+'"]');if(b)b.classList.add('on')});
-    fl.cu.forEach(function(c){var b=document.querySelector('[data-k="cu"][data-v="'+c+'"]');if(b)b.classList.add('on')});
-    if(fl.stadtZh)document.getElementById('btnStadtZh').classList.add('on');
-    if(fl.winterthur)document.getElementById('btnWinti').classList.add('on');
-    buildSortMenu();return true;
-  }catch(e){return false}
-}
+function saveFilterState(){}
 
-// ── BACK TO TOP ──
+// BACK TO TOP
 window.addEventListener('scroll',function(){var b=document.getElementById('btt');if(b)b.classList.toggle('show',window.scrollY>300)},{passive:true});
 
 let ALL=[],FLT=[],page=1;const PER=48;let view='grid';let sort={k:'reviewCount',d:'desc'};
-let fl={s:'',tr:new Set(),cu:new Set(),ci:new Set(),mr:1.0,mv:40,stadtZh:false,winterthur:false};
-let idxCity={},idxType={},idxTrade={},idxCuisine={};
+let fl={s:'',mr:1.0,mv:0};
 
-const CMAP={
-  vegan_restaurant:{l:'Vegan',i:'🌱',cat:'diet'},vegetarian_restaurant:{l:'Vegetarisch',i:'🥗',cat:'diet'},
-  steak_house:{l:'Steakhouse',i:'🥩',cat:'dish'},barbecue_restaurant:{l:'BBQ / Grill',i:'🔥',cat:'dish'},
-  pizza_restaurant:{l:'Pizzeria',i:'🍕',cat:'dish'},sushi_restaurant:{l:'Sushi',i:'🍣',cat:'dish'},
-  hamburger_restaurant:{l:'Burger',i:'🍔',cat:'dish'},kebab_shop:{l:'Döner / Kebab',i:'🥙',cat:'dish'},
-  fast_food_restaurant:{l:'Fast Food',i:'🍟',cat:'dish'},seafood_restaurant:{l:'Seafood',i:'🦐',cat:'dish'},
-  breakfast_restaurant:{l:'Frühstück',i:'🥞',cat:'dish'},brunch_restaurant:{l:'Brunch',i:'🍳',cat:'dish'},
-  bistro:{l:'Bistro',i:'🍴',cat:'dish'},buffet_restaurant:{l:'Buffet',i:'🍱',cat:'dish'},
-  ramen_restaurant:{l:'Ramen',i:'🍜',cat:'dish'},sandwich_shop:{l:'Sandwich',i:'🥪',cat:'dish'},
-  fusion_restaurant:{l:'Fusion',i:'✨',cat:'dish'},family_restaurant:{l:'Familienrest.',i:'👨‍👩‍👧',cat:'dish'},
-  swiss_restaurant:{l:'Schweizer',i:'🇨🇭',cat:'origin'},italian_restaurant:{l:'Italienisch',i:'🇮🇹',cat:'origin'},
-  turkish_restaurant:{l:'Türkisch',i:'🇹🇷',cat:'origin'},greek_restaurant:{l:'Griechisch',i:'🇬🇷',cat:'origin'},
-  indian_restaurant:{l:'Indisch',i:'🇮🇳',cat:'origin'},thai_restaurant:{l:'Thai',i:'🇹🇭',cat:'origin'},
-  japanese_restaurant:{l:'Japanisch',i:'🇯🇵',cat:'origin'},chinese_restaurant:{l:'Chinesisch',i:'🇨🇳',cat:'origin'},
-  vietnamese_restaurant:{l:'Vietnamesisch',i:'🇻🇳',cat:'origin'},korean_restaurant:{l:'Koreanisch',i:'🇰🇷',cat:'origin'},
-  mexican_restaurant:{l:'Mexikanisch',i:'🇲🇽',cat:'origin'},lebanese_restaurant:{l:'Libanesisch',i:'🇱🇧',cat:'origin'},
-  american_restaurant:{l:'Amerikanisch',i:'🇺🇸',cat:'origin'},french_restaurant:{l:'Französisch',i:'🇫🇷',cat:'origin'},
-  spanish_restaurant:{l:'Spanisch',i:'🇪🇸',cat:'origin'},mediterranean_restaurant:{l:'Mediterran',i:'🫒',cat:'origin'},
-  middle_eastern_restaurant:{l:'Nahöstlich',i:'🧆',cat:'origin'},asian_restaurant:{l:'Asiatisch',i:'🥢',cat:'origin'},
-  european_restaurant:{l:'Europäisch',i:'🍽️',cat:'origin'},african_restaurant:{l:'Afrikanisch',i:'🌍',cat:'origin'},
-  indonesian_restaurant:{l:'Indonesisch',i:'🇮🇩',cat:'origin'},persian_restaurant:{l:'Persisch',i:'🇮🇷',cat:'origin'},
-  cocktail_bar:{l:'Cocktailbar',i:'🍸',cat:'drinks'},wine_bar:{l:'Weinbar',i:'🍷',cat:'drinks'},
-  pub:{l:'Pub',i:'🍺',cat:'drinks'},hookah_bar:{l:'Shisha Bar',i:'💨',cat:'drinks'},
-  lounge_bar:{l:'Lounge',i:'🛋️',cat:'drinks'},night_club:{l:'Nachtclub',i:'🎵',cat:'drinks'},
-  beer_garden:{l:'Biergarten',i:'🍻',cat:'drinks'},sports_bar:{l:'Sports Bar',i:'⚽',cat:'drinks'},
-  brewery:{l:'Brauerei',i:'🏭',cat:'drinks'},
-  confectionery:{l:'Konditorei',i:'🍰',cat:'sweet'},pastry_shop:{l:'Patisserie',i:'🥐',cat:'sweet'},
-  ice_cream_shop:{l:'Eisdiele',i:'🍦',cat:'sweet'},dessert_shop:{l:'Desserts',i:'🧁',cat:'sweet'},
-  chocolate_shop:{l:'Schokolade',i:'🍫',cat:'sweet'},
-  coffee_shop:{l:'Coffee Shop',i:'☕',cat:'service'},meal_takeaway:{l:'Takeaway',i:'🥡',cat:'service'},
-  meal_delivery:{l:'Lieferdienst',i:'🚴',cat:'service'},food_delivery:{l:'Lieferung',i:'📦',cat:'service'},
-  catering_service:{l:'Catering',i:'🎪',cat:'service'},pizza_delivery:{l:'Pizza-Lief.',i:'🛵',cat:'service'},
-  snack_bar:{l:'Snack Bar',i:'🍿',cat:'service'},
-};
-const CAT_LABELS={diet:'Ernährungsweise',dish:'Gerichte & Stil',origin:'Herkunft / Küche',drinks:'Getränke & Nightlife',sweet:'Süsses & Gebäck',service:'Service & Typ'};
-const CAT_ORDER=['diet','dish','origin','drinks','sweet'];
-const TRADE_I={'Restaurant':'🍽️','Bar':'🍺','Café':'☕','Hotel':'🏨','Bäckerei':'🥐','Takeaway':'🥡','Einkaufszentrum':'🏬'};
 const KREIS={8001:1,8002:2,8003:3,8004:4,8005:5,8006:6,8008:8,8032:7,8037:10,8038:2,8040:4,8041:7,8044:7,8045:3,8046:6,8047:5,8048:4,8049:10,8050:11,8051:11,8052:12,8053:7,8055:3,8057:6,8058:12,8060:11,8064:9,8092:1};
 
-// PLZ→[lat,lng] built from dataset
 var PLZ_GEO={};
 function buildPlzGeo(){
   var acc={};
@@ -559,16 +389,8 @@ function haversine(lat1,lon1,lat2,lon2){
 }
 var geoOrigin=null,geoRadius=0;
 
-// ── STADT ZÜRICH / WINTERTHUR FILTER ──
-function isStadtZuerich(addr){var m=(addr||'').match(/\b(80\d{2})\b/);return m!==null}
-function isWinterthur(city){return(city||'').toLowerCase()==='winterthur'}
-function toggleStadtZh(){fl.stadtZh=!fl.stadtZh;document.getElementById('btnStadtZh').classList.toggle('on',fl.stadtZh);page=1;apply()}
-function toggleWinti(){fl.winterthur=!fl.winterthur;document.getElementById('btnWinti').classList.toggle('on',fl.winterthur);page=1;apply()}
-
-// ── POSITION DROPDOWN (mobile fix) ──
 function positionDropdown(btnEl,menuEl){var rect=btnEl.getBoundingClientRect();menuEl.style.position='fixed';menuEl.style.top=(rect.bottom+4)+'px';var rightEdge=window.innerWidth-rect.right;menuEl.style.right=Math.max(4,rightEdge)+'px';menuEl.style.left='auto';menuEl.style.maxWidth=(window.innerWidth-8)+'px'}
 
-// ── OPEN MAPS (native Google Maps app on mobile, browser tab on desktop) ──
 function openMaps(url,lat,lng,name){
   var ua=navigator.userAgent;
   var isMobile=/iPhone|iPad|iPod|Android/i.test(ua);
@@ -576,39 +398,26 @@ function openMaps(url,lat,lng,name){
   var isIOS=/iPhone|iPad|iPod/i.test(ua);
   var isAndroid=/Android/i.test(ua);
   if(lat&&lng){
-    if(isIOS){
-      window.location.href='comgooglemaps://?q='+encodeURIComponent(name||'')+'&center='+lat+','+lng;
-    }else if(isAndroid){
-      window.location.href='geo:'+lat+','+lng+'?q='+encodeURIComponent(name||'');
-    }else{window.open(url,'_blank','noopener,noreferrer')}
+    if(isIOS){window.location.href='comgooglemaps://?q='+encodeURIComponent(name||'')+'&center='+lat+','+lng}
+    else if(isAndroid){window.location.href='geo:'+lat+','+lng+'?q='+encodeURIComponent(name||'')}
+    else{window.open(url,'_blank','noopener,noreferrer')}
   }else{window.open(url,'_blank','noopener,noreferrer')}
 }
 
-// ── SYNC SIDEBAR TOP ──
 function syncSidebarTop(){if(window.innerWidth<=900)return;var header=document.querySelector('.header');var stats=document.querySelector('.stats');if(!header||!stats)return;var h=header.offsetHeight+stats.offsetHeight;var sidebar=document.getElementById('sidebar');if(sidebar){sidebar.style.top=h+'px';sidebar.style.maxHeight='calc(100vh - '+h+'px)'}}
 window.addEventListener('resize',syncSidebarTop);
-
-// ── CLOSE DROPDOWNS ON SCROLL ──
 window.addEventListener('scroll',function(){document.getElementById('sortMenu').classList.remove('on')},{passive:true});
 
-function getKreis(a){if(!a)return 0;const m=a.match(/\b(80\d{2})\b/);return m?KREIS[+m[1]]||0:0}
-function kreisTag(a){const k=getKreis(a);return k?'<span class="kreis">K'+k+'</span>':''}
-function xCity(a){if(!a)return'';const p=a.split(',');if(p.length<2)return a.trim();const l=p[p.length-1].trim(),t=l.split(/\s+/);return t.length>=2&&/^\d{4,5}$/.test(t[0])?t.slice(1).join(' '):l}
-function stars(r,sz){sz=sz||13;let h='',fu=Math.floor(r),ha=r-fu>=.25;for(let i=0;i<5;i++){if(i<fu)h+='<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';else if(i===fu&&ha)h+='<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24"><defs><linearGradient id="hg'+sz+'"><stop offset="50%" stop-color="currentColor"/><stop offset="50%" stop-color="#D4DCE8"/></linearGradient></defs><path fill="url(#hg'+sz+')" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';else h+='<svg class="e" width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>'}return h}
+function getKreis(a){if(!a)return 0;var m=a.match(/\b(80\d{2})\b/);return m?KREIS[+m[1]]||0:0}
+function kreisTag(a){var k=getKreis(a);return k?'<span class="kreis">K'+k+'</span>':''}
+function xCity(a){if(!a)return'';var p=a.split(',');if(p.length<2)return a.trim();var l=p[p.length-1].trim(),t=l.split(/\s+/);return t.length>=2&&/^\d{4,5}$/.test(t[0])?t.slice(1).join(' '):l}
+function stars(r,sz){sz=sz||13;var h='',fu=Math.floor(r),ha=r-fu>=.25;for(var i=0;i<5;i++){if(i<fu)h+='<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';else if(i===fu&&ha)h+='<svg width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24"><defs><linearGradient id="hg'+sz+'"><stop offset="50%" stop-color="currentColor"/><stop offset="50%" stop-color="#D4DCE8"/></linearGradient></defs><path fill="url(#hg'+sz+')" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';else h+='<svg class="e" width="'+sz+'" height="'+sz+'" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>'}return h}
 function esc(s){var d=document.createElement('div');d.textContent=s||'';return d.innerHTML}
 function truncName(s,max){if(!s||s.length<=max)return s;var t=s.substring(0,max);var li=t.lastIndexOf(' ');if(li>max*0.4)t=t.substring(0,li);return t+'…'}
-function tradeCls(t){if(!t)return'ct-default';var k=t.toLowerCase();if(k==='restaurant')return'ct-restaurant';if(k==='bar')return'ct-bar';if(k==='café'||k==='cafe')return'ct-café';if(k==='bäckerei'||k==='backerei')return'ct-bäckerei';if(k==='einkaufszentrum')return'ct-einkaufszentrum';if(k==='takeaway')return'ct-takeaway';if(k==='hotel')return'ct-hotel';return'ct-default'}
 function debounce(fn,ms){var t;return function(){var a=arguments;clearTimeout(t);t=setTimeout(function(){fn.apply(null,a)},ms)}}
 function fmt(n){return n.toLocaleString('de-CH')}
-function s2rv(v){v=+v;if(!v)return 40;return Math.round(40+Math.pow(v/100,2)*14653)}
-function rv2s(r){if(r<=40)return 0;return Math.round(Math.sqrt((r-40)/14653)*100)}
-
-// ── SVG Placeholder Photo ──
-var PLACEHOLDER_PHOTO="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Crect width='80' height='80' fill='%23F5F0EB' rx='12'/%3E%3Ctext x='40' y='44' text-anchor='middle' dominant-baseline='middle' font-family='system-ui,sans-serif' font-size='10' font-weight='500' fill='%238A8078'%3ETest Foto%3C/text%3E%3C/svg%3E";
-
-function getCardPhoto(p){
-  return p.photo_url||PLACEHOLDER_PHOTO;
-}
+function s2rv(v){v=+v;if(!v)return 0;return Math.round(Math.pow(v/100,2)*5000)}
+function rv2s(r){if(r<=0)return 0;return Math.round(Math.sqrt(r/5000)*100)}
 
 function getMapsUrl(p){
   if(p.gmaps){
@@ -620,71 +429,36 @@ function getMapsUrl(p){
   return 'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent((p.name||'')+' '+(p.addr||''));
 }
 
-// ── INIT ──
+// INIT
 async function init(){
   var bar=document.getElementById('pbar'),msg=document.getElementById('splashMsg');
   try{
     bar.style.width='15%';
-    var resp=await fetch('gastro.json');
+    var resp=await fetch('barbershops_zuerich.json');
     if(!resp.ok)throw new Error('FETCH_FAIL');
     bar.style.width='40%';msg.textContent='JSON wird geparst…';
     var raw=await resp.json();
     processAndBoot(raw);
   }catch(err){
-    if(err.message==='FETCH_FAIL'||err instanceof TypeError){
-      msg.textContent='Bitte gastro.json manuell laden:';msg.style.opacity='1';
-      document.getElementById('splashBarWrap').style.display='none';
-      document.getElementById('splashSpinner').style.display='none';
-      document.getElementById('splashUpload').classList.add('show');
-      setupUpload();
-    }else{msg.textContent='Fehler: '+err.message;msg.style.color='#FF6B6B';console.error(err)}
+    msg.textContent='Fehler beim Laden: '+err.message;msg.style.color='#FF6B6B';
   }
 }
-function setupUpload(){
-  var z=document.getElementById('dropZone'),inp=document.getElementById('fileInput');
-  z.ondragover=function(e){e.preventDefault();z.classList.add('over')};
-  z.ondragleave=function(){z.classList.remove('over')};
-  z.ondrop=function(e){e.preventDefault();z.classList.remove('over');if(e.dataTransfer.files[0])readFile(e.dataTransfer.files[0])};
-  inp.onchange=function(e){if(e.target.files[0])readFile(e.target.files[0])};
-}
-function readFile(file){
-  var msg=document.getElementById('splashMsg'),bar=document.getElementById('pbar');
-  msg.textContent='Datei wird gelesen…';msg.style.opacity='.6';
-  document.getElementById('splashUpload').classList.remove('show');
-  document.getElementById('splashSpinner').style.display='';
-  document.getElementById('splashBarWrap').style.display='';bar.style.width='30%';
-  var reader=new FileReader();
-  reader.onload=function(e){try{processAndBoot(JSON.parse(e.target.result))}catch(err){msg.textContent='JSON Fehler: '+err.message;msg.style.color='#FF6B6B'}};
-  reader.readAsText(file);
-}
+
 async function processAndBoot(raw){
   var bar=document.getElementById('pbar'),msg=document.getElementById('splashMsg');
   try{
     var places=Array.isArray(raw)?raw:(raw.places||raw.results||[]);
-    bar.style.width='60%';msg.textContent=fmt(places.length)+' Einträge werden verarbeitet…';
+    bar.style.width='60%';msg.textContent=fmt(places.length)+' Barbershops werden verarbeitet…';
     await new Promise(function(r){setTimeout(r,30)});
-    var SKIP=new Set(['point_of_interest','establishment','food','store','service','food_store']);
     ALL=places.map(function(p){
-      var city=xCity(p.address||p.formatted_address||p.vicinity||'');
-      var types=(p.types||[]).filter(function(t){return !SKIP.has(t)});
-      var cuisines=types.filter(function(t){return !!CMAP[t]});
-      var trade=p.trade||'';
-      if(types.indexOf('shopping_mall')>=0||types.indexOf('department_store')>=0)trade='Einkaufszentrum';
-      var st=[p.name,p.address,trade].concat(types).concat(cuisines.map(function(c){return(CMAP[c]||{}).l||''})).join(' ').toLowerCase();
-      return{id:p.id||p.place_id||'',name:p.name||'',addr:p.address||p.formatted_address||p.vicinity||'',lat:p.lat||0,lng:p.lng||0,r:p.rating||0,rv:p.reviewCount||p.user_ratings_total||0,gmaps:p.gmapsUrl||'',web:p.website||'',ph:p.phone||'',pc:p.photoCount!=null?p.photoCount:(p.photos?p.photos.length:0),trade:trade,types:types,cuisines:cuisines,city:city,searchText:st,photo_url:p.photo_url||''};
+      var city=xCity(p.address||'');
+      var st=[p.name,p.address].join(' ').toLowerCase();
+      return{id:p.place_id||'',name:p.name||'',addr:p.address||'',lat:p.lat||0,lng:p.lng||0,r:p.rating||0,rv:p.reviews||0,gmaps:p.google_maps_url||'',web:p.website||'',ph:p.phone||'',hours:p.opening_hours||[],city:city,searchText:st};
     });
-    bar.style.width='75%';msg.textContent='Indizes werden aufgebaut…';
-    await new Promise(function(r){setTimeout(r,20)});
-    ALL.forEach(function(p){
-      if(p.city)idxCity[p.city]=(idxCity[p.city]||0)+1;
-      if(p.trade)idxTrade[p.trade]=(idxTrade[p.trade]||0)+1;
-      p.cuisines.forEach(function(c){idxCuisine[c]=(idxCuisine[c]||0)+1});
-    });
-    bar.style.width='90%';msg.textContent='Interface wird aufgebaut…';
+    bar.style.width='75%';msg.textContent='Interface wird aufgebaut…';
     await new Promise(function(r){setTimeout(r,20)});
     buildPlzGeo();buildUI();FLT=ALL.slice();
-    var restored=restoreFilterState();localStorage.removeItem('zh-filter-state');
-    if(restored){apply()}else{sortFLT();render();updCount();updChips()}
+    sortFLT();render();updCount();updChips();
     bar.style.width='100%';
     await new Promise(function(r){setTimeout(r,250)});
     document.getElementById('splash').classList.add('done');document.getElementById('app').style.display='';
@@ -693,88 +467,32 @@ async function processAndBoot(raw){
 }
 
 function buildUI(){
-  // ── Betriebsart accordion ──
-  var te=document.getElementById('fTradeGrid');
-  var lblTrade=document.getElementById('lblTrade');
-  lblTrade.addEventListener('click',function(){
-    lblTrade.classList.toggle('open');
-    lblTrade.nextElementSibling.classList.toggle('open');
-  });
-  Object.entries(idxTrade).sort(function(a,b){return b[1]-a[1]}).forEach(function(e){
-    var b=document.createElement('button');
-    b.className='filter-chip';b.dataset.k='tr';b.dataset.v=e[0];
-    b.innerHTML=(TRADE_I[e[0]]||'📍')+' '+e[0]+'<span class="chip-count">'+e[1]+'</span>';
-    b.onclick=function(){togF('tr',e[0],b)};te.appendChild(b);
-  });
-
-  // ── Cuisine filters as accordion sections with 2-col grid ──
-  var cf=document.getElementById('fCuisineBody'),byCat={};
-  Object.entries(idxCuisine).forEach(function(e){var info=CMAP[e[0]];if(!info)return;if(!byCat[info.cat])byCat[info.cat]=[];byCat[info.cat].push({k:e[0],n:e[1],l:info.l,i:info.i})});
-  CAT_ORDER.forEach(function(cat){
-    var items=byCat[cat];if(!items||!items.length)return;items.sort(function(a,b){return b.n-a.n});
-    // Accordion label
-    var lbl=document.createElement('button');
-    lbl.className='filter-section-label';
-    lbl.textContent=CAT_LABELS[cat];
-    lbl.addEventListener('click',function(){
-      lbl.classList.toggle('open');
-      body.classList.toggle('open');
-    });
-    cf.appendChild(lbl);
-    // Body with 2-col grid
-    var body=document.createElement('div');
-    body.className='filter-section-body';
-    var grid=document.createElement('div');
-    grid.className='filter-chips-grid';
-    items.forEach(function(it){
-      var b=document.createElement('button');
-      b.className='filter-chip';
-      b.dataset.k='cu';b.dataset.v=it.k;
-      b.innerHTML=it.i+' '+it.l+'<span class="chip-count">'+it.n+'</span>';
-      b.onclick=function(){togF('cu',it.k,b)};
-      grid.appendChild(b);
-    });
-    body.appendChild(grid);
-    cf.appendChild(body);
-  });
-
-  // ── Review presets ──
+  // Review presets
   var rp=document.getElementById('revPresets');
   [50,100,200,500,1000].forEach(function(v){var b=mk('button','tb');b.textContent=v+'+';b.onclick=function(){var sl=document.getElementById('revSlider');sl.value=rv2s(v);onRevCount(sl.value)};rp.appendChild(b)});
-
-  // ── Geo radius buttons ──
+  // Geo radius buttons
   var gr=document.getElementById('geoRadius');
   [1,2,3,5,7,10,15].forEach(function(km){
     var b=mk('button','tb');b.dataset.km=km;b.textContent=km+' km';
     b.onclick=function(){setGeoRadius(km)};gr.appendChild(b);
   });
-  document.getElementById('geoPlz').oninput=function(){
-    onGeoPlz(this.value);
-  };
+  document.getElementById('geoPlz').oninput=function(){onGeoPlz(this.value)};
   buildSortMenu();
   document.getElementById('si').oninput=debounce(function(){fl.s=document.getElementById('si').value.toLowerCase().trim();page=1;apply()},300);
   syncSidebarTop();
 }
 function mk(tag,cls){var e=document.createElement(tag);e.className=cls;return e}
-function togF(set,val,btn){
-  if(fl[set].has(val)){fl[set].delete(val);if(btn)btn.classList.remove('on')}
-  else{fl[set].add(val);if(btn)btn.classList.add('on')}
-  page=1;apply();
-}
 function onRating(v){document.getElementById('ratingVal').textContent=(+v).toFixed(1);fl.mr=+v;page=1;apply()}
-function onRevCount(v){var r=s2rv(v);document.getElementById('revVal').textContent=r>=14000?'14000+':''+r;fl.mv=r;page=1;apply()}
+function onRevCount(v){var r=s2rv(v);document.getElementById('revVal').textContent=''+r;fl.mv=r;page=1;apply()}
 function clearAll(){
-  fl={s:'',tr:new Set(),cu:new Set(),ci:new Set(),mr:1.0,mv:40,stadtZh:false,winterthur:false};
+  fl={s:'',mr:1.0,mv:0};
   document.getElementById('si').value='';
   document.getElementById('ratingSlider').value=1;document.getElementById('ratingVal').textContent='1.0';
-  document.getElementById('revSlider').value=0;document.getElementById('revVal').textContent='40';
-  document.querySelectorAll('.filter-chip.on').forEach(function(b){b.classList.remove('on')});
-  document.getElementById('btnStadtZh').classList.remove('on');
-  document.getElementById('btnWinti').classList.remove('on');
+  document.getElementById('revSlider').value=0;document.getElementById('revVal').textContent='0';
   clearGeo();
   page=1;apply();
 }
-// ── GEO FILTER ──
+// GEO FILTER
 function onGeoPlz(val){
   var inp=document.getElementById('geoPlz');
   val=val.replace(/\D/g,'');inp.value=val;
@@ -823,9 +541,6 @@ function distTag(p){
 function apply(){
   FLT=ALL.filter(function(p){
     if(fl.s&&p.searchText.indexOf(fl.s)<0)return false;
-    if(fl.tr.size&&!fl.tr.has(p.trade))return false;
-    if(fl.cu.size&&!p.cuisines.some(function(c){return fl.cu.has(c)}))return false;
-    if(fl.stadtZh||fl.winterthur){if(!((fl.stadtZh&&isStadtZuerich(p.addr))||(fl.winterthur&&isWinterthur(p.city))))return false}
     if(p.r<fl.mr)return false;
     if(p.rv<fl.mv)return false;
     return true;
@@ -856,14 +571,6 @@ document.addEventListener('click',function(e){if(!e.target.closest('.sdrop'))doc
 
 function render(){if(view==='grid')renderGrid();else renderList();renderPag()}
 
-function cardIcon(p){
-  var t=(p.trade||'default').toLowerCase().replace(/\s+/g,'-');
-  var cls='ci-'+({'restaurant':1,'bar':1,'café':1,'hotel':1,'bäckerei':1,'takeaway':1,'einkaufszentrum':1}[t]?t:'default');
-  var icon=TRADE_I[p.trade]||'🍽️';
-  if(p.cuisines.length>0){var cm=CMAP[p.cuisines[0]];if(cm)icon=cm.i}
-  return '<div class="card-icon '+cls+'">'+icon+'</div>';
-}
-
 function renderGrid(){
   var g=document.getElementById('grid'),l=document.getElementById('lview'),em=document.getElementById('empty');
   g.style.display='grid';l.style.display='none';
@@ -872,10 +579,8 @@ function renderGrid(){
   var favs=getFavs();
   g.innerHTML=slice.map(function(p,i){
     var globalRank=start+i+1;
-    var cu=p.cuisines.slice(0,2).map(function(c){return '<span class="tag">'+CMAP[c].i+' '+CMAP[c].l+'</span>'}).join('');
     var kr=kreisTag(p.addr);
     var dt=distTag(p);
-    var photoSrc=getCardPhoto(p);
     var mapsUrl=getMapsUrl(p);
     var faved=favs.indexOf(p.id)>=0;
     var rankCls=globalRank<=3?'rank-badge top3':'rank-badge';
@@ -884,7 +589,7 @@ function renderGrid(){
         +'<div class="'+rankCls+'"># '+globalRank+'</div>'
       +'</div>'
       +'<div class="card-main-row">'
-        +'<img class="card-photo" src="'+photoSrc+'" alt="" loading="lazy">'
+        +'<div class="card-icon">💈</div>'
         +'<div class="card-content">'
           +'<div class="card-name">'+esc(p.name)+'</div>'
           +'<div class="card-addr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg><span class="card-addr-text">'+esc(p.addr)+'</span>'+kr+dt+'</div>'
@@ -892,7 +597,7 @@ function renderGrid(){
         +'</div>'
       +'</div>'
       +'<div class="card-footer">'
-        +'<div class="card-tags">'+(p.trade?'<span class="tag card-trade '+tradeCls(p.trade)+'">'+(TRADE_I[p.trade]||'📍')+' '+p.trade+'</span>':'')+cu+'</div>'
+        +'<div class="card-tags"><span class="tag">💈 Barbershop</span></div>'
         +'<a class="btn-maps" href="javascript:void(0)" onclick="event.stopPropagation();openMaps(\''+esc(mapsUrl).replace(/'/g,"\\'")+'\','+(p.lat||0)+','+(p.lng||0)+',\''+esc(p.name).replace(/'/g,"\\'")+'\')">'
         +'<svg width="12" height="12" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#EA4335"/><circle cx="12" cy="9" r="2.5" fill="#fff"/></svg>Google Maps</a>'
       +'</div>'
@@ -906,7 +611,7 @@ function renderList(){
   g.style.display='none';l.style.display='block';
   if(!FLT.length){l.style.display='none';em.style.display='';return}em.style.display='none';
   var hasGeo=geoOrigin&&geoRadius>0;
-  var cols=[{k:null,l:'#'},{k:'name',l:'Name'},{k:null,l:'Stadt'},{k:null,l:'Kategorie'},{k:'rating',l:'Bewertung'},{k:'reviewCount',l:'Anzahl'}];
+  var cols=[{k:null,l:'#'},{k:'name',l:'Name'},{k:null,l:'Stadt'},{k:'rating',l:'Bewertung'},{k:'reviewCount',l:'Anzahl'}];
   if(hasGeo)cols.push({k:'distance',l:'Entfernung'});
   cols.push({k:null,l:''});
   var headHTML='<tr>';
@@ -924,7 +629,7 @@ function renderList(){
     var cityD=kr?esc(p.city)+' <span class="kreis">K'+kr+'</span>':esc(p.city);
     var distCell='';
     if(hasGeo){var d=p._dist;distCell='<td>'+((d!=null&&d>=0)?(d<1?Math.round(d*1000)+' m':d.toFixed(1)+' km'):'–')+'</td>'}
-    return '<tr><td style="font-weight:700;color:var(--primary);text-align:center;font-size:.78rem">'+globalRank+'</td><td class="nc" onclick="openModal(\''+p.id+'\')" title="'+esc(p.name)+'">'+esc(truncName(p.name,30))+'</td><td class="ac">'+cityD+'</td><td><span class="tag" style="font-size:.7rem">'+(TRADE_I[p.trade]||'')+' '+(p.trade||'–')+'</span></td><td><span class="stars" style="display:inline-flex;vertical-align:middle">'+stars(p.r,11)+'</span> '+p.r.toFixed(1)+'</td><td>'+fmt(p.rv)+'</td>'+distCell+'<td class="link-cell"><a href="javascript:void(0)" onclick="openMaps(\''+esc(link).replace(/'/g,"\\'")+'\','+(p.lat||0)+','+(p.lng||0)+',\''+esc(p.name).replace(/'/g,"\\'")+'\')" style="color:var(--primary);font-weight:500;font-size:.78rem">Maps ↗</a></td></tr>';
+    return '<tr><td style="font-weight:700;color:var(--primary);text-align:center;font-size:.78rem">'+globalRank+'</td><td class="nc" onclick="openModal(\''+p.id+'\')" title="'+esc(p.name)+'">'+esc(truncName(p.name,30))+'</td><td class="ac">'+cityD+'</td><td><span class="stars" style="display:inline-flex;vertical-align:middle">'+stars(p.r,11)+'</span> '+p.r.toFixed(1)+'</td><td>'+fmt(p.rv)+'</td>'+distCell+'<td class="link-cell"><a href="javascript:void(0)" onclick="openMaps(\''+esc(link).replace(/'/g,"\\'")+'\','+(p.lat||0)+','+(p.lng||0)+',\''+esc(p.name).replace(/'/g,"\\'")+'\')" style="color:var(--primary);font-weight:500;font-size:.78rem">Maps ↗</a></td></tr>';
   }).join('');
 }
 
@@ -942,9 +647,9 @@ function renderPag(){
   el.innerHTML=h;
 }
 function goPage(p){page=p;render();window.scrollTo({top:160,behavior:'smooth'})}
-function updCount(){document.getElementById('rcnt').innerHTML='<b>'+fmt(FLT.length)+'</b> von '+fmt(ALL.length)+' Betrieben'}
+function updCount(){document.getElementById('rcnt').innerHTML='<b>'+fmt(FLT.length)+'</b> von '+fmt(ALL.length)+' Barbershops'}
 
-// ── CHIPS (DOM-based) ──
+// CHIPS
 function updChips(){
   var el=document.getElementById('chips');
   while(el.firstChild)el.removeChild(el.firstChild);
@@ -959,26 +664,32 @@ function updChips(){
     el.appendChild(span);
   }
   if(fl.s)addChip('"'+fl.s+'"',function(){fl.s='';document.getElementById('si').value=''});
-  if(fl.stadtZh)addChip('🏙️ Stadt Zürich',function(){fl.stadtZh=false;document.getElementById('btnStadtZh').classList.remove('on')});
-  if(fl.winterthur)addChip('🏙️ Winterthur',function(){fl.winterthur=false;document.getElementById('btnWinti').classList.remove('on')});
-  fl.tr.forEach(function(t){addChip((TRADE_I[t]||'')+' '+t,function(){togF('tr',t,document.querySelector('[data-k="tr"][data-v="'+t+'"]'))})});
-  fl.cu.forEach(function(c){var cm=CMAP[c];addChip((cm?cm.i:'')+' '+(cm?cm.l:c),function(){togF('cu',c,document.querySelector('[data-k="cu"][data-v="'+c+'"]'))})});
   if(fl.mr>1)addChip('≥'+fl.mr.toFixed(1)+'★',function(){fl.mr=1;document.getElementById('ratingSlider').value=1;document.getElementById('ratingVal').textContent='1.0'});
-  if(fl.mv>40)addChip('≥'+fl.mv+' Bew.',function(){fl.mv=40;document.getElementById('revSlider').value=0;document.getElementById('revVal').textContent='40'});
+  if(fl.mv>0)addChip('≥'+fl.mv+' Bew.',function(){fl.mv=0;document.getElementById('revSlider').value=0;document.getElementById('revVal').textContent='0'});
   if(geoOrigin&&geoRadius>0){addChip('📍 PLZ '+geoOrigin.plz+' · '+geoRadius+' km',function(){clearGeo()})}
   if(count>1){var clr=document.createElement('button');clr.className='chip-clear';clr.textContent='Alle ✕';clr.addEventListener('click',function(){clearAll()});el.appendChild(clr)}
 }
 
-// ── MODAL ──
+// MODAL
 function openModal(id){
   var p=ALL.find(function(x){return x.id===id});if(!p)return;
   var bd=document.getElementById('mbody');
   var link=getMapsUrl(p);
-  var cuisines=p.cuisines.map(function(c){var cm=CMAP[c];return '<span class="tag" style="font-size:.72rem">'+(cm?cm.i:'')+' '+(cm?cm.l:c)+'</span>'}).join('');
-  var trade=p.trade?'<span class="tag" style="font-size:.72rem;background:var(--primary-light);color:var(--primary)">'+(TRADE_I[p.trade]||'')+' '+p.trade+'</span>':'';
   var kr=kreisTag(p.addr);
   var mdist='';if(geoOrigin&&p._dist>=0){var d=p._dist;mdist='<div class="m-row" style="color:var(--gold);font-weight:600"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+(d<1?Math.round(d*1000)+' m':d.toFixed(1)+' km')+' von PLZ '+geoOrigin.plz+'</div>'}
-  bd.innerHTML='<div class="m-name">'+esc(p.name)+'</div><div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem"><div class="stars" style="color:var(--gold)">'+stars(p.r,17)+'</div><span style="font-weight:700;font-size:1.05rem">'+p.r.toFixed(1)+'</span><span style="color:var(--text3);font-size:.88rem">('+fmt(p.rv)+' Bewertungen)</span></div><div class="m-sec"><h4>Details</h4><div class="m-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+esc(p.addr||'–')+' '+kr+'</div>'+mdist+(p.ph?'<div class="m-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:'+p.ph+'" style="color:var(--primary);font-weight:500">'+esc(p.ph)+'</a></div>':'')+(p.web?'<div class="m-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><a href="'+p.web+'" target="_blank" rel="noopener" style="color:var(--primary);font-weight:500;word-break:break-all">'+p.web.replace(/^https?:\/\/(www\.)?/,'').substring(0,45)+'</a></div>':'')+'</div><div class="m-sec"><h4>Kategorien</h4><div class="tg" style="gap:.25rem">'+trade+cuisines+'</div></div><div class="m-cta">'+(link?'<a href="javascript:void(0)" onclick="openMaps(\''+esc(link).replace(/'/g,"\\'")+'\','+(p.lat||0)+','+(p.lng||0)+',\''+(p.name||'').replace(/'/g,"\\'")+'\')" class="btn-p">📍 Auf Google Maps</a>':'')+(p.web?'<a href="'+p.web+'" target="_blank" rel="noopener" class="btn-s">🌐 Website besuchen</a>':'')+'</div>';
+  // Opening hours
+  var hoursHtml='';
+  if(p.hours&&p.hours.length){
+    hoursHtml='<div class="m-sec"><h4>Öffnungszeiten</h4><ul class="hours-list">';
+    p.hours.forEach(function(h){
+      var parts=h.split(': ');
+      var day=parts[0]||'';
+      var time=parts.slice(1).join(': ')||'';
+      hoursHtml+='<li><span class="hours-day">'+esc(day)+'</span><span class="hours-time">'+esc(time)+'</span></li>';
+    });
+    hoursHtml+='</ul></div>';
+  }
+  bd.innerHTML='<div class="m-name">'+esc(p.name)+'</div><div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem"><div class="stars" style="color:var(--gold)">'+stars(p.r,17)+'</div><span style="font-weight:700;font-size:1.05rem">'+p.r.toFixed(1)+'</span><span style="color:var(--text3);font-size:.88rem">('+fmt(p.rv)+' Bewertungen)</span></div><div class="m-sec"><h4>Details</h4><div class="m-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>'+esc(p.addr||'–')+' '+kr+'</div>'+mdist+(p.ph?'<div class="m-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg><a href="tel:'+p.ph+'" style="color:var(--primary);font-weight:500">'+esc(p.ph)+'</a></div>':'')+(p.web?'<div class="m-row"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg><a href="'+p.web+'" target="_blank" rel="noopener" style="color:var(--primary);font-weight:500;word-break:break-all">'+p.web.replace(/^https?:\/\/(www\.)?/,'').substring(0,45)+'</a></div>':'')+'</div>'+hoursHtml+'<div class="m-sec"><h4>Kategorie</h4><div class="tg" style="gap:.25rem"><span class="tag">💈 Barbershop</span></div></div><div class="m-cta">'+(link?'<a href="javascript:void(0)" onclick="openMaps(\''+esc(link).replace(/'/g,"\\'")+'\','+(p.lat||0)+','+(p.lng||0)+',\''+(p.name||'').replace(/'/g,"\\'")+'\')" class="btn-p">📍 Auf Google Maps</a>':'')+(p.web?'<a href="'+p.web+'" target="_blank" rel="noopener" class="btn-s">🌐 Website besuchen</a>':'')+'</div>';
   document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';
 }
 function closeModal(){document.getElementById('modal').classList.remove('on');document.body.style.overflow=''}
